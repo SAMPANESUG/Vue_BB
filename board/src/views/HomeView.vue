@@ -14,6 +14,22 @@ export default {
       .catch(function (e) {
         console.log(e);
       });
+
+    apiBoard.getArticles(0) 
+      .then(function (response) {
+        console.log("getArticles", response);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
+
+    apiBoard.postArticle("id", "title", "body") 
+      .then(function (response) {
+        console.log("postArticle", response);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
   }
 }
 </script>
