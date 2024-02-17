@@ -1,9 +1,9 @@
 <template>
-  <h1>Hello,Huiseong / 안녕, 희성</h1>
+  <h1>Hello</h1>
 </template>
 
 <script>
-import apiBoard from '@/api/board';
+import apiBoard from '@/api/board'
 
 export default {
   mounted() {
@@ -15,7 +15,7 @@ export default {
         console.log(e);
       });
 
-    apiBoard.getArticles(0) 
+    apiBoard.getArticles(0)
       .then(function (response) {
         console.log("getArticles", response);
       })
@@ -23,7 +23,7 @@ export default {
         console.log(e);
       });
 
-    apiBoard.postArticle("id", "title", "body") 
+    apiBoard.postArticle("userId", "title", "body")
       .then(function (response) {
         console.log("postArticle", response);
       })
