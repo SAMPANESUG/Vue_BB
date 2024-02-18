@@ -1,9 +1,14 @@
 <template>
-  <el-table :data="articles" style="width: 100%">
-    <el-table-column prop="id" label="id" width="80"></el-table-column>
-    <el-table-column prop="userId" label="userId" width="120"></el-table-column>
-    <el-table-column prop="title" label="title"></el-table-column>
-  </el-table>
+  <el-row>
+    <el-col :span="2"></el-col>
+    <el-col :span="20">
+      <el-table @row-click="rowClicked" :data="articles" style="width: 100%">
+          <el-table-column prop="id" label="id" width="80"></el-table-column>
+          <el-table-column prop="userId" label="userId" width="120"></el-table-column>
+          <el-table-column prop="title" label="title"></el-table-column>
+      </el-table>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -24,7 +29,15 @@ export default {
       })
       .catch((e) => {
         console.log(e);
+
       });
+  },
+  methods: {
+    rowClicked(row) {
+      this.$router.push({
+        path: `/board/someview/${row.id}`
+      });
+    }
   }
 }
 </script>
